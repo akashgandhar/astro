@@ -1,9 +1,10 @@
 import Image from "next/image";
-import Underline from "./components/Underline";
+import Navbar from "./components/Navbar";
+import TopBanner from "./components/TopBanner";
 
 export default function Home() {
   return (
-    <Underline/>
+    <><TopBanner /><Navbar /></>
     
   );
 }
