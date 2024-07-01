@@ -4,7 +4,11 @@ import TopBanner from "./components/TopBanner";
 
 export default function Home() {
   return (
-    <><TopBanner /><Navbar /></>
+    <>
+    <UnderlinedText text={"hello"} active/>
+    <TopBanner />
+    <Navbar />
+    </>
     
   );
 }
