@@ -11,15 +11,11 @@ import Interview from "./components/Interview";
 export default function Home() {
   return (
     <>
-      <TopBanner />
-      <Navbar />
       <Slider />
       <UnderSlider />
-
       <BookAppointment/>
       <Interview/>
       <Testimonials/>
-
       </>
 
   );
