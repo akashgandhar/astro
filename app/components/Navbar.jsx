@@ -1,56 +1,139 @@
-"use client"
-import { useState } from "react";
-import UnderlinedText from "@/utils/UnderlinedText";
-import Link from "next/link";
-import React from "react";
+'use client'
+import React, { useEffect, useState } from "react";
 
-export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+// import { navLinks } from "../constants";
+// import { logo, menu, close } from "../assets";
+import Link from "next/link";
+import UnderlinedText from "@/utils/UnderlinedText";
+
+
+const leftLinks = [
+  {
+    id: "about",
+    title: "ABOUT",
+  },
+  {
+    id: "contact",
+    title: "CONTACT",
+  },
+
+];
+const rightLinks = [
+  {
+    id: "services",
+    title: "SERVICES",
+  },
+  {
+    id: "tarot",
+    title: "TAROT",
+  },
+
+];
+
+const Navbar = () => {
+
+  const [scrolled, setScrolled] = useState(false);
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop > 100) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="flex items-center justify-between h-[5vh] p-10 gap-4 relative z-20">
-      {/* Hamburger Icon for small screens */}
-      <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden z-20">
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-      </button>
+    <nav className="w-full fixed  ease-in md:relative md:min-h-28 md:h-28 bg-[#fbe5d0] flex justify-between items-center transition-all duration-300 px-5 md:px-10">
 
-      {/* Full-width vertical menu for small screens */}
-      <div className={`absolute top-0 left-0 h-screen w-full bg-white flex flex-col items-center justify-start pt-20 md:pt-0 md:bg-transparent md:h-auto md:w-auto md:relative md:flex-row ${isMenuOpen ? "block" : "hidden"} md:block`}>
-        <Link href="/" legacyBehavior>
-          <a className="text-black text-xl font-bold px-3 py-2 md:py-0" onClick={() => setIsMenuOpen(false)}>HOME</a>
-        </Link>
-        <Link href="/about" legacyBehavior>
-          <a className="text-black text-xl font-bold px-3 py-2 md:py-0" onClick={() => setIsMenuOpen(false)}>ABOUT</a>
-        </Link>
-        <Link href="/contact" legacyBehavior>
-          <a className="text-black text-xl font-bold px-3 py-2 md:py-0" onClick={() => setIsMenuOpen(false)}>CONTACT</a>
-        </Link>
+
+      {/* hamburger menu  */}
+      <div className=" md:hidden transition-all duration-300 ease-in flex flex-col w-full items-end justify-center py-5">
+        <div className="w-full flex items-center justify-between">
+          
+          {/* logo  */}
+          <div className="flex-1  flex justify-start items-center">
+            <Link href="/">
+              <p>
+                logo
+              </p>
+            </Link>
+          </div>
+          
+          <button onClick={
+          () => setMenuOpen(!menuOpen)
+
+        }>
+          <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4ZM7 12C7 11.4477 7.44772 11 8 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H8C7.44772 13 7 12.5523 7 12ZM13 18C13 17.4477 13.4477 17 14 17H20C20.5523 17 21 17.4477 21 18C21 18.5523 20.5523 19 20 19H14C13.4477 19 13 18.5523 13 18Z" fill="#000000" />
+          </svg>
+        </button>
+        </div>
+
+        <div className={`w-full ${menuOpen ? "h-[100vh] transition-all duration-300 ease-in" : "h-0 transition-all duration-300 ease-in"} transition-all duration-300 ease-in overflow-hidden`}>
+          <div className="flex flex-col gap-5 items-center justify-center">
+            {leftLinks.map((link) => (
+              <Link key={link.id} href={`/${link.title.toLowerCase()}`}>
+                <d className=" text-lg font-semibold text-black">{link.title}</d>
+              </Link>
+            ))}
+
+
+
+            {rightLinks.map((link) => (
+              <Link key={link.id} href={`/${link.title.toLowerCase()}`}>
+                <d className="text-lg font-semibold text-black">{link.title}</d>
+              </Link>
+            ))}
+
+          </div>
+        </div>
+
+
       </div>
 
-      {/* Centered logo remains unchanged */}
-      <div className="flex items-center justify-center w-fit px-10 md:px-0">
-        <Link href="/">
-          <p className="text-black text-2xl font-bold">LOGO</p>
-        </Link>
-      </div>
 
-      {/* Right-side menu items for larger screens */}
-      <div className="hidden md:flex items-center justify-between w-full">
-        <div className="flex items-center justify-start w-full">
-          <Link href="/login" legacyBehavior>
-            <a className="text-black text-xl font-bold px-4">LOGIN</a>
+
+      {/* nav links 3 to the left center logo 3 to gthe right  */}
+      <div className="flex-1 hidden md:flex items-center justify-center "><div className="flex gap-5 items-center ">
+        {leftLinks.map((link) => (
+          <Link key={link.id} href={`/${link.title.toLowerCase()}`}>
+            <d className=" text-lg font-semibold text-black">{link.title}</d>
           </Link>
-          <Link href="/signup" legacyBehavior>
-            <a className="text-black text-xl font-bold px-4">SIGN UP</a>
-          </Link>
-          <Link href="/cart" legacyBehavior>
-            <a className="text-black text-xl font-bold px-4">CART</a>
+        ))}
+
+        {/* logo  */}
+        <div className="flex-1 px-10 flex justify-center items-center">
+          <Link href="/">
+            <p>
+              logo
+            </p>
           </Link>
         </div>
-        <button className="bg-black text-white px-5 py-2 max-w-fit whitespace-nowrap">
-          Buy Now
-        </button>
+
+        {rightLinks.map((link) => (
+          <Link key={link.id} href={`/${link.title.toLowerCase()}`}>
+            <d className="text-lg font-semibold text-black">{link.title}</d>
+          </Link>
+        ))}
       </div>
-    </nav>
+      </div>
+      <div className="absolute right-10 md:block hidden bg-black text-white py-4 px-3">
+        <p>
+          Book Appointment
+        </p>
+      </div>
+
+    </nav >
   );
-}
+};
+
+export default Navbar;

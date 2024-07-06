@@ -16,8 +16,8 @@ const sections = [
 
 export default function Footer() {
   return (
-    <div className='h-[150vh] md:h-[75vh] flex'>
-      <footer className='flex flex-col md:flex-row justify-between py-[6%] px-[4%] bg-[#FDF8F3] text-black text-center p-4 w-full h-full'>
+    <div className='h-[150vh] md:h-[75vh] flex bg-[#FDF8F3]'>
+      <footer className='flex flex-col md:flex-row justify-between py-[6%] px-[4%]  text-black text-center p-4 w-full h-full'>
         <div className="flex flex-col w-full items-start text-black">
           <h1 className="text-2xl">CONTACT INFO</h1>
           <div className="flex flex-col py-8">
