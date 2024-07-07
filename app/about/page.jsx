@@ -9,7 +9,7 @@ export default function page() {
             <div className="flex flex-col sm:flex-row h-[90vh] p-[10%]">
                 <div className="flex flex-col w-1/2">
                     <h1 className='text-xl md:text-6xl justify-center'>HELLO! I'M<br />NAMENAME</h1>
-                    <p className='py-9 w-[70%] text-sm md:text-xl'>Our certified professional astrologer with over 15 years of consulting experience is ready to help you comprehend the secrets of your fate encoded in position of celestial bodies at the time of your birth. Absolute confidentiality is guaranteed.</p>
+                    <p className='py-9 w-[70%] text-sm md:text-xl text-justify'>Our certified professional astrologer with over 15 years of consulting experience is ready to help you comprehend the secrets of your fate encoded in position of celestial bodies at the time of your birth. Absolute confidentiality is guaranteed.</p>
                     <p>Award Winning Author</p>
                     <p>Best Seller 2022</p>
                     <p>A Guide Through Life</p>
