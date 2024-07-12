@@ -37,13 +37,9 @@ export default function ServicesPage() {
         ))}
       </div>
       <div className="my-12">
-        <button
-          className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 "
-          onClick={() => setShowCourses(!showCourses)}
-        >
-          {showCourses ? 'Hide Courses' : 'Show Courses'}
-        </button>
-        {showCourses && (
+        
+        <p className='font-semibold text-xl md:text-4xl w-full text-center'> COURSES</p>
+
           <div className="mt-8 grid md:grid-cols-2 gap-4">
             {courses.map((course, index) => (
               <div onClick={
@@ -55,7 +51,7 @@ export default function ServicesPage() {
               </div>
             ))}
           </div>
-        )}
+        
       </div>
     </div>
   );

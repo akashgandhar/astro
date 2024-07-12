@@ -8,32 +8,32 @@ const tarotCards = [
   {
     image: '/tarot/theEmpress.png',
     name: 'THE EMPRESS',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'The Empress symbolizes motherhood, fertility, and abundance. She brings nurturing and growth, indicating a time of prosperity and comfort.',
   },
   {
     image: '/tarot/emperor.png',
     name: 'THE EMPEROR',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'The Emperor stands for authority, structure, and control. He represents a powerful leader who brings order and stability.',
   },
   {
     image: '/tarot/death.png',
     name: 'DEATH',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'Death signifies transformation, endings, and the start of new beginnings. It suggests letting go of the old to make way for the new.',
   },
   {
     image: '/tarot/fool.png',
     name: 'THE FOOL',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'The Fool represents new beginnings, innocence, and a leap of faith. It signifies embarking on an adventure without knowing the outcome.',
   },
   {
     image: '/tarot/devil.png',
     name: 'THE DEVIL',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'The Devil symbolizes bondage, addiction, and materialism. It warns against being trapped by desires or being in a situation that doesn’t serve you.',
   },
   {
     image: '/tarot/magician.png',
     name: 'THE MAGICIAN',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'The Magician signifies manifestation, resourcefulness, and power. It suggests you have the skills and capabilities to realize your goals and desires.',
   },
 ];
 
@@ -55,7 +55,7 @@ const page = () => {
               </a>
             </Link>
           </div>
-          <div className="w-full md:w-1/2 p-4 md:pl-20 flex flex-col ">
+          <div className="w-full md:w-2/3 p-4 md:pl-20 flex flex-col ">
             <h2 className="text-2xl md:text-5xl font-light py-6 text-[#926D41] cursor-pointer text-center md:text-start w-full" onClick={() => redirectToCardDetail(card.name)}>
               {card.name}
             </h2>

@@ -4,6 +4,10 @@ import Link from "next/link";
 import UnderlinedText from "@/utils/UnderlinedText";
 const leftLinks = [
   {
+    id: "home",
+    title: "HOME",
+  },
+  {
     id: "services",
     title: "SERVICES",
   },
@@ -38,7 +42,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <nav className="w-full fixed  ease-in md:relative md:min-h-28 md:h-28 bg-[#fbe5d0] flex justify-between items-center transition-all duration-300 px-5 md:px-10">
+    <nav className="w-full fixed  ease-in md:relative md:min-h-28 md:h-28 bg-[#FDF8F3] flex justify-between items-center transition-all duration-300 px-5 md:px-10 z-10000">
       {/* hamburger menu  */}
       <div className=" md:hidden transition-all duration-300 ease-in flex flex-col w-full items-end justify-center py-5">
         <div className="w-full flex items-center justify-between">
@@ -63,12 +67,12 @@ const Navbar = () => {
           <div className="flex flex-col gap-5 items-center justify-center">
             {leftLinks.map((link) => (
               <Link key={link.id} href={`/${link.title.toLowerCase()}`}>
-                <d className=" text-lg font-semibold text-black">{link.title}</d>
+                <UnderlinedText text={`${link.title}`}/>
               </Link>
             ))}
             {rightLinks.map((link) => (
               <Link key={link.id} href={`/${link.title.toLowerCase()}`}>
-                <d className="text-lg font-semibold text-black">{link.title}</d>
+                <UnderlinedText className="text-lg font-semibold text-black">{link.title}</UnderlinedText>
               </Link>
             ))}
           </div>
@@ -78,11 +82,11 @@ const Navbar = () => {
       <div className="flex-1 hidden md:flex items-center justify-center "><div className="flex gap-5 items-center ">
         {leftLinks.map((link) => (
           <Link key={link.id} href={`/${link.title.toLowerCase()}`}>
-            <d className=" text-lg font-semibold text-black">{link.title}</d>
+            <UnderlinedText classes={'font-semibold text-[#636160]'} text={link.title}/>
           </Link>
         ))}
         {/* logo  */}
-        <div className="flex-1 px-10 flex justify-center items-center">
+        <div className="flex-1 px-10 flex justify-center items-center font-b">
           <Link href="/">
             <p>
               logo
@@ -91,7 +95,7 @@ const Navbar = () => {
         </div>
         {rightLinks.map((link) => (
           <Link key={link.id} href={`/${link.title.toLowerCase()}`}>
-            <d className="text-lg font-semibold text-black">{link.title}</d>
+            <UnderlinedText classes={'font-semibold text-[#636160]'} text={link.title}/>
           </Link>
         ))}
       </div>
